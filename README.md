@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Code Editor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    #editor {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="editor"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/javascript/javascript.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/htmlmixed/htmlmixed.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/css/css.js"></script>
+  <script>
+    // Initialize CodeMirror
+    var editor = CodeMirror(document.getElementById("editor"), {
+      mode: "htmlmixed",
+      lineNumbers: true,
+      theme: "dracula" // You can choose a different theme
+    });
+
+    // Sample code to populate the editor
+    var initialCode = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>My HTML Page</title>
+        <style>
+          body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+          }
+        </style>
+      </head>
+      <body>
+        <h1>Hello, World!</h1>
+        <script>
+          alert('Welcome to the Online Code Editor!');
+        </script>
+      </body>
+      </html>
+    `;
+
+    editor.setValue(initialCode);
+
+    // You can use the editor.getValue() to get the code entered by the user
+  </script>
+
+</body>
+</html>
